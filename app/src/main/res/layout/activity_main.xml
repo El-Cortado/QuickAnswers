@@ -4,15 +4,153 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/classroom_background"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    <ImageButton
+        android:layout_width="62dp"
+        android:layout_height="62dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/round_button"
+        android:contentDescription="@string/sendButtonDescription"
+        android:padding="9dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/send_icon"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/headlineLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/questionLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/headlineText"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:ems="10"
+            android:gravity="center"
+            android:text="@string/headlineText"
+            android:textColor="@color/defaultLightText"
+            android:textSize="47sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="226dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/questionLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="120dp"
+        android:gravity="end"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/headlineLayout">
+
+        <TextView
+            android:id="@+id/questionGuideText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:gravity="bottom"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:text="@string/questionGuideText"
+            android:textColor="@color/defaultLightText"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="226dp" />
+
+        <EditText
+            android:id="@+id/questionText"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:autofillHints="@string/questionTextHint"
+            android:ems="10"
+            android:hint="@string/questionTextHint"
+            android:inputType="textPersonName"
+            android:textColor="@color/defaultLightText"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="226dp" />
+
+        <Spinner
+            android:id="@+id/inputMethod"
+            android:layout_width="300dp"
+            android:layout_height="53dp"
+            android:spinnerMode="dropdown"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/questionText" />
+
+        <LinearLayout
+            android:id="@+id/inputOptions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/multipleChoicesOptions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/choicesList"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/scaleOptions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <EditText
+                    android:id="@+id/scaleMin"
+                    android:layout_width="70dp"
+                    android:layout_height="40dp"
+                    android:autofillHints="0"
+                    android:ems="10"
+                    android:hint="@string/minHint"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/defaultLightText" />
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:text="@string/toString"
+                    android:textColor="@color/defaultLightText"
+                    android:textSize="17sp" />
+                <EditText
+                    android:id="@+id/scaleMax"
+                    android:layout_width="70dp"
+                    android:layout_height="40dp"
+                    android:autofillHints="0"
+                    android:ems="10"
+                    android:hint="@string/maxHint"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/defaultLightText" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
