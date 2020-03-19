@@ -11,6 +11,7 @@
     <string name="toString">to</string>
     <string name="defaultHint">Add…</string>
     <string name="removeChoiceDescription">Remove choice</string>
+    <string name="choice">choice</string>
     <string-array name="inputOptions">
         <item>Multiple choices</item>
         <item>Free text</item>

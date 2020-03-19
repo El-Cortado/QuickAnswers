@@ -1,4 +1,4 @@
-package com.cortado.quickanswers.gui;
+package com.cortado.quickanswers.gui.activities.main;
 
 public enum InputType {
     MULTIPLE_CHOICES(0),
