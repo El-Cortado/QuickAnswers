@@ -78,6 +78,7 @@ public class MainGui implements MainGuiModel {
         throw new IllegalStateException();
     }
 
+    @Override
     public void setup() {
         setupInputMethodSpinner(mInputTypeToChoicesGui);
 

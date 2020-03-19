@@ -3,8 +3,6 @@ package com.cortado.quickanswers;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.cortado.quickanswers.gui.activities.main.InputOptions;
-import com.cortado.quickanswers.gui.activities.main.InputType;
 import com.cortado.quickanswers.gui.activities.main.MainGui;
 import com.cortado.quickanswers.gui.activities.main.MainGuiModel;
 
@@ -15,13 +13,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        MainGui mainGui = new MainGui(this);
+        MainGuiModel mainGui = new MainGui(this);
         mainGui.setup();
-        mainGui.registerSurveySendListener(new MainGuiModel.SurveySendListener() {
-            @Override
-            public void onSurveySent(InputType inputType, InputOptions inputOptions) {
-                Toast.makeText(MainActivity.this, inputType.name() + ": " + inputOptions.toString(), Toast.LENGTH_LONG).show();
-            }
-        });
+        mainGui.registerSurveySendListener((inputType, inputOptions) ->
+                Toast.makeText(MainActivity.this, inputType.name() + ": " + inputOptions.toString(), Toast.LENGTH_LONG).show());
     }
 }
